@@ -1,7 +1,7 @@
 {
   "type": "module",
   "scripts": {
-    "develop": "cross-env NODE_ENV='development' concurrently -n w: 'npm:develop:*'",
+    "develop": "cross-env NODE_ENV='production' concurrently -n w: 'npm:develop:*'",
     "develop:node": "nodemon -e js,ejs,html --experimental-network-imports --experimental-loader @node-loader/core server/server.js",
     "develop:webpack": "webpack-dev-server --mode=development --port 9876 --env.isLocal=true --config webpack.config.cjs",
     "start:node": "node --experimental-loader @node-loader/core server/server.js",

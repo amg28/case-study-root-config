@@ -32,7 +32,7 @@ npm install
 
 3. Start the project using a command - it will start client and node servers simultaneously:
 ```
-npm develop
+npm run develop
 ```
 
 ### Usage
@@ -42,7 +42,14 @@ Node.JS server starts on port: http://localhost:9876/
 
 For local development usage, it is enough with the start of only this project, as micro frontend applications for the navbar, weather-app, and pollution-app deployed version are imported into a project via Import maps.
 
-If you wish to develop or change a particular micro frontend application, you can install them locally. Micro frontend applications will be picked up by the root application instead of the application's deployed version.
+---
+
+If you wish to develop or change a particular micro frontend application, you can install them locally and change `npm run develop` command NODE_ENV property to `development` value in `package.json` file:
+```
+    "develop": "cross-env NODE_ENV='development' concurrently -n w: 'npm:develop:*'",
+```
+Micro frontend applications will be picked up by the root application instead of the application's deployed version.
+Overrides settings as local application ports or urls can be adjusted in `index-html.js` file.
 
 ### Error handling
 
